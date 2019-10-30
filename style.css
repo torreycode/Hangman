@@ -1,0 +1,39 @@
+html{
+    background-color: red;
+}
+
+
+.game-container {
+    height: 500px;
+    width: 500px;
+    border: 3px solid white;
+    margin-left: 480px;
+    margin-top: 100px;
+}
+
+.hang-stand{
+    height: 50px;
+    margin-top: 420px;
+    margin-left: 20px;
+    width: 300px;
+    border: 2px solid white;
+}
+
+.hang-pole{
+    position: absolute;
+    height: 400px;
+    width: 20px;
+    border: 2px solid white;
+    margin-top: 18px;
+    margin-left: 50px;
+}
+
+.hang-top{
+    position: absolute;
+    height: 50px;
+    margin-left: 72px;
+    width: 300px;
+    border: 2px solid white; 
+    margin-top: -456px;
+
+}
