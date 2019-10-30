@@ -1,12 +1,16 @@
 html{
-    background-color: red;
+    background-color: black;
 }
 
+.title{
+    color: orange;
+    font-family: 'Creepster', cursive;
+}
 
 .game-container {
     height: 500px;
     width: 500px;
-    border: 3px solid white;
+    border: 3px solid orange;
     margin-left: 480px;
     margin-top: 100px;
 }
@@ -16,14 +20,14 @@ html{
     margin-top: 420px;
     margin-left: 20px;
     width: 300px;
-    border: 2px solid white;
+    border: 2px solid orange;
 }
 
 .hang-pole{
     position: absolute;
     height: 400px;
     width: 20px;
-    border: 2px solid white;
+    border: 2px solid orange;
     margin-top: 18px;
     margin-left: 50px;
 }
@@ -33,7 +37,23 @@ html{
     height: 50px;
     margin-left: 72px;
     width: 300px;
-    border: 2px solid white; 
+    border: 2px solid orange; 
     margin-top: -456px;
+}
 
+.hang-bar{
+    height: 20px;
+    transform: rotate(490deg);
+    margin-left: 45px;
+    width: 90px;
+    border: 2px solid orange; 
+    margin-top: -370px;
+}
+
+.hang-rope{
+    transform: rotate(90deg);
+    margin-left: 215px;
+    width: 90px;
+    border: 2px solid orange; 
+    margin-top: -359px;
 }
