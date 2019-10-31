@@ -6,8 +6,17 @@ let underScore = []; // empty array holding underscores
 console.log(chosenWord);
 
 
-let userUnderscore = () => {
+// The expression below generates an array of underscores equivalent to the amount of characters in the randomly generated word.
+let userUnderscore = () => {   
     for(let i=0; i < chosenWord.length; i++){
-
+underScore.push('_');
     }
+    return underScore;
 }
+console.log(userUnderscore());
+
+
+document.addEventListener('keypress', (event) => {   // the event listener is listening to each key that is pressed and displaying that letter associated in the console using fromCharCode and event.keyCode
+    let keyword = String.fromCharCode(event.keyCode);
+    console.log(keyword);
+} )
