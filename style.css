@@ -57,3 +57,14 @@ html{
     border: 2px solid orange; 
     margin-top: -359px;
 }
+
+.underscore{
+    background-color: black;
+    border: 2px solid orange;
+    margin-top: 20px;
+    width: 300px;
+    margin-left: 570px;
+    color: white;
+    font-family: 'Creepster', cursive;
+    text-align: center;
+}
