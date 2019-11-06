@@ -1,15 +1,3 @@
-
-// //game reset logic
-
-// function reset()
-// {
-// startGame();
-// }
-
-
-function startGame(){
-
-    
 //Contains all the spookiest vocabulary known to the human kind.
 const words = ['bat', 'costume', 'ghost', 'goblin','haunted', 'mask', 'night', 'pirate', 'spider', 'hero', 'vampire', 'witch'];
 
@@ -21,19 +9,18 @@ let underScore = []; // empty array holding underscores
 let rightWords = []; //array holding the correct guesses.
 console.log(rightWords);
 let wrongWords = []; // array holding incorrect guesses.
-let guessesLeft = 8; // beginning amount of guesses left
 let lettersInWord = chosenWord.split(''); // splits the chosenWord in an array. Can be looped through.
 let numBlanks = lettersInWord.length; // This dynamically gets the number of blanks in the split version of chosen word.
 let docUnderScore = document.getElementById("underscore"); // gets the html element underscore
 let docrightguess = document.getElementById("rightguess"); // gets the right guess html element
-let docwrongguess = document.querySelectorAll(".wrongguess"); // gets the wrong guess html element
+let docwrongguess = document.getElementById("wrongguess"); // gets the wrong guess html element
 console.log(wrongWords);
 console.log(lettersInWord);
 
 
 // dynamically generates the correct amount of underscores in the chosen word.
 let hangWord = () => {
-        for (let i = 0; i < lettersInWord.length; i++) {
+        for (let i = 0; i < chosenWord.length; i++) {
             underScore.push(' _ ');
         }
         return underScore;
@@ -52,8 +39,6 @@ document.addEventListener('keypress', (event) => {   // the event listener is li
     let keyword = String.fromCharCode(event.keyCode);
     console.log(keyword);
 
-    rightWords.push(keyword);
-    
     underScore[lettersInWord.indexOf(keyword)] = keyword; 
     docUnderScore.innerHTML = underScore.join(' ');
     docrightguess.innerHTML = rightWords.join(' ');
@@ -63,68 +48,21 @@ document.addEventListener('keypress', (event) => {   // the event listener is li
 
   if(lettersInWord.indexOf(keyword) > -1){
     console.log('you\'ve guessed correctly')
+    rightWords.push(keyword);
+}
+else if (wrongWords.length >= 5) {
+    alert("You lost");
+    docUnderScore.innerHTML = chosenWord;
+
 }
 else {
+    wrongWords.push(keyword);
     console.log('wrong')
 }
-  if(underScore.join('') === chosenWord){
+
+  if (underScore.join('') === chosenWord){
     alert('you win');
+    docrightguess.innerHTML = chosenWord;
+    resetGame();
 }
 })
-
-
-
-  
-
-};
-
-
-
-
-
-
-startGame();
-
-
-
-
-
-
-
-
-
-
-
-
-// // Main Variables
-
-
-
-
-//     underScore[lettersInWord.indexOf(keyword)] = keyword; //find the chosenWord and in the code below places the equivalent # of underscores inside of the text/guesses box.
-//     docUnderScore[0].innerHTML = underScore.join(' ')
-//     docrightguess[0].innerHTML = rightWords.join(' '); // checks if input is right
-//     docwrongguess[0].innerHTML = wrongWords.join(' ');
-
-
-//     if (lettersInWord.indexOf(keyword) > -1) {
-//         rightWords.push(keyword);
-//         if (underScore.join('') === chosenWord) {
-//            alert("You win")
-//            reset();
-//         }
-
-
-//     }
-//     else if (wrongWords.length >= 5) {
-//         alert("You lost");
-//         reset();
-
-//     }
-//     else {
-//          wrongWords.push(keyword) 
-//          console.log("guess was wrong")
-//         };
-// })};
-
-//  startGame();
