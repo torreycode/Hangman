@@ -52,21 +52,21 @@ document.addEventListener('keypress', (event) => {   // the event listener is li
     let keyword = String.fromCharCode(event.keyCode);
     console.log(keyword);
 
-
-    // looping through each syllable and checking if it's correct or not.
-lettersInWord.forEach(function(element) {
-
+    rightWords.push(keyword);
+    
     underScore[lettersInWord.indexOf(keyword)] = keyword; 
     docUnderScore.innerHTML = underScore.join(' ');
     docrightguess.innerHTML = rightWords.join(' ');
     docwrongguess.innerHTML = wrongWords.join(' ');
+ 
 
-    if(keyword === element){
-        rightWords.push(keyword);
-        console.log('you\'ve guessed correctly')
-    }
-  });
 
+  if(lettersInWord.indexOf(keyword) > -1){
+    console.log('you\'ve guessed correctly')
+}
+else {
+    console.log('wrong')
+}
   if(underScore.join('') === chosenWord){
     alert('you win');
 }
