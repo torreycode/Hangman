@@ -4,7 +4,6 @@ const words = ['bat', 'costume', 'ghost', 'goblin','haunted', 'mask', 'night', '
 //important functionality variables
 let randWord = Math.floor(Math.random() * words.length); //Math.floor is rounding off the number of words in the words array to the nearest integer.
 let chosenWord = words[randWord]; // Picking a random word from the words array.
-console.log(chosenWord);
 let underScore = []; // empty array holding underscores
 let wrongWords = []; // array holding incorrect guesses.
 let lettersInWord = chosenWord.split(''); // splits the chosenWord in an array. Can be looped through.
@@ -16,8 +15,6 @@ const maxAttempts = 5;
 var guessCount = 0;
 var winCount = 0;
 var guessesRemaining = maxAttempts - guessCount;
-console.log(wrongWords);
-console.log(lettersInWord);
 
 
 function clearGame(){
@@ -54,13 +51,8 @@ let hangWord = () => {
         return underScore;
     }
 hangWord();
-console.log(hangWord);
-console.log(underScore);
-
 docUnderScore.innerHTML = underScore.join(' ');
-
-  }
-  
+  } 
   getWord();
 
 
@@ -72,8 +64,6 @@ docUnderScore.innerHTML = underScore.join(' ');
   // listening for keypresses
 document.addEventListener('keypress', (event) => {   // the event listener is listening to each key that is pressed and displaying that letter associated in the console using fromCharCode and event.keyCode
     let keyword = String.fromCharCode(event.keyCode);
-    console.log(keyword);
-
     underScore[lettersInWord.indexOf(keyword)] = keyword; 
     docUnderScore.innerHTML = underScore.join(' ');
     docwrongguess.innerHTML = wrongWords.join(' ');
@@ -81,25 +71,20 @@ document.addEventListener('keypress', (event) => {   // the event listener is li
 
     guessesRemaining = maxAttempts - guessCount;
   if(lettersInWord.indexOf(keyword) > -1){
-    console.log('you\'ve guessed correctly')
 }
 else {
     wrongWords.push(keyword);
     guessCount++;
     docLivesLeft.innerHTML = guessesRemaining;
-    console.log('wrong')
 }
 
   if (underScore.join('') === chosenWord){
-    alert('you win');
     winCount++;
     document.getElementById('number2').innerHTML = winCount;
     resetGame();
 
 }
 else if (guessesRemaining === 0) {
-     
-  alert("You lost");
   lostGame();
   resetGame();
 }
