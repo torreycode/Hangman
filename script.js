@@ -6,8 +6,6 @@ let randWord = Math.floor(Math.random() * words.length); //Math.floor is roundin
 let chosenWord = words[randWord]; // Picking a random word from the words array.
 console.log(chosenWord);
 let underScore = []; // empty array holding underscores
-let rightWords = []; //array holding the correct guesses.
-console.log(rightWords);
 let wrongWords = []; // array holding incorrect guesses.
 let lettersInWord = chosenWord.split(''); // splits the chosenWord in an array. Can be looped through.
 let numBlanks = lettersInWord.length; // This dynamically gets the number of blanks in the split version of chosen word.
@@ -16,11 +14,24 @@ let docwrongguess = document.getElementById("wrongguess"); // gets the wrong gue
 let docLivesLeft = document.getElementById("number"); // gets the lives left html element
 const maxAttempts = 5;
 var guessCount = 0;
+var winCount = 0;
 var guessesRemaining = maxAttempts - guessCount;
 console.log(wrongWords);
 console.log(lettersInWord);
 
 
+function clearGame(){
+  randWord = Math.floor(Math.random() * words.length); //Math.floor is rounding off the number of words in the words array to the nearest integer.
+  chosenWord = words[randWord]; // Picking a random word from the words array.
+  underScore = [];
+  wrongWords = [];
+  lettersInWord = chosenWord.split(''); // splits the chosenWord in an array. Can be looped through.
+  numBlanks = lettersInWord.length;
+}
+
+
+
+function getWord(){
 // dynamically generates the correct amount of underscores in the chosen word.
 let hangWord = () => {
         for (let i = 0; i < chosenWord.length; i++) {
@@ -34,19 +45,15 @@ console.log(underScore);
 
 docUnderScore.innerHTML = underScore.join(' ');
 
+  }
+  
+  getWord();
 
 
-// clears the words and guesses to restart the game
-function clearWordAndGuesses() {
-	guessCountElement.innerHTML = maxAttempts;
-	guessCount = 0;
-	guessesRemaining = maxAttempts - guessCount;
-	underScore = [];
-docwrongguess.innerHTML = "";
-}
-
-
-
+  function resetGame(){
+    clearGame();
+    getWord();
+  }
 
   // listening for keypresses
 document.addEventListener('keypress', (event) => {   // the event listener is listening to each key that is pressed and displaying that letter associated in the console using fromCharCode and event.keyCode
@@ -61,7 +68,6 @@ document.addEventListener('keypress', (event) => {   // the event listener is li
     guessesRemaining = maxAttempts - guessCount;
   if(lettersInWord.indexOf(keyword) > -1){
     console.log('you\'ve guessed correctly')
-    rightWords.push(keyword);
 }
 else {
     wrongWords.push(keyword);
@@ -72,11 +78,14 @@ else {
 
   if (underScore.join('') === chosenWord){
     alert('you win');
+    winCount++;
+    document.getElementById('number2').innerHTML = winCount;
+    resetGame();
 
 }
 else if (guessesRemaining === 0) {
+     
   alert("You lost");
   docUnderScore.innerHTML = chosenWord;
-
 }
 })

@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Creepster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <title>Hangman</title>
 </head>
 <body>
     <h1 class="title"> Hangman </h1>
-    <h2 class="edition"> Spooky Halloween Edition </h2>
+    <h2 class="edition"> Spooky Halloween Version </h2>
+    <div class="game-box">
     <h1 class="press-key"> Begin Typing To Start </h1>
+    <h1 id="win-count">Win Count <p id="number2"> 0 </p></h1>
     <img class="skeletonfloss" src="skeletonfloss.jpg" alt="Skeleton Flossing">
   <div class="game-container">
     <div id="background"></div>
@@ -24,7 +27,7 @@
   <p id="lives"> Lives Left: <p id="number"> 5</p> </p>
   <p id="wrongs" class="wrongs"> Wrong Guesses</p>
   <div id="wrongguess" class="wrongguess"></div>
-
+</div>
     
 </body>
 <script src="script.js"> </script>
