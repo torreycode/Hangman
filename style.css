@@ -55,7 +55,7 @@ html{
     width: 200px;
     margin-left: 900px;
     height: 50px;
-    color: orange;
+    color: white;
     font-size: 50px;
 }
 
@@ -63,7 +63,8 @@ html{
  #wrongs{
 margin-left: 845px;
 color: orange;
-font-size: 50px;
+font-size: 30px;
+font-family: 'ZCOOL KuaiLe', cursive;
 }
 
 #lives{
@@ -74,6 +75,7 @@ font-size: 50px;
 
 #win-count{
     margin-left: 900px;
+    font-family: 'Creepster', cursive;
 }
 
 #number2{
