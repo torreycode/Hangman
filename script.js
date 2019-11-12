@@ -63,6 +63,6 @@ else {
   if (underScore.join('') === chosenWord){
     alert('you win');
     docrightguess.innerHTML = chosenWord;
-    resetGame();
+
 }
 })

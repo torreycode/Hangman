@@ -1,50 +1,68 @@
 html{
-    background-color: black;
-    color: orange;
+    background-color: rgba(0,0,0,0.9);
+    color: white;
+}
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background-color: black; 
+    z-index: -3;
 }
 
 .title{
     color: orange;
     font-family: 'Creepster', cursive;
+    margin-left: 180px;
+    font-size: 40px;
+}
+
+
+.edition{
+    color: orange;
+    font-family: 'Creepster', cursive;
+    margin-left: 130px;
 }
 .skeletonfloss{
-    height: 600px;
-    margin-top: 50px;
+    height: 500px;
+    margin-top: 10px;
     margin-left: -20px;
-    z-index: -3px;
+    z-index: -4px;
 }
 
 #underscore{
-    background-color: black;
-    border: 2px solid orange;
-    margin-top: -580px;
-    width: 300px;
-    margin-left: 1050px;
+    margin-top: -440px;
+    width: 500px;
+    margin-left: 740px;
     color: white;
+    font-size: 50px;
     font-family: 'Creepster', cursive;
     text-align: center;
     height: 50px;
 }
 
 
-#rightguess{
-    background-color: black;
-    border: 2px solid orange;
-    margin-top: 100px;
-    margin-left: 1100px;
-    width: 200px;
-    height: 50px;
-    color: white;
-}
-
 
 #wrongguess{
-    background-color: black;
-    border: 2px solid orange;
     margin-top: 10px;
     width: 200px;
-    margin-left: 1100px;
+    margin-left: 900px;
     height: 50px;
-    color: white;
+    color: orange;
+    font-size: 50px;
 }
 
+
+ #wrongs{
+margin-left: 845px;
+color: orange;
+font-size: 50px;
+
+}
+
+.press-key{
+    color:orange;
+    margin-left: 850px;
+}
