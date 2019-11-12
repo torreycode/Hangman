@@ -12,8 +12,11 @@ let wrongWords = []; // array holding incorrect guesses.
 let lettersInWord = chosenWord.split(''); // splits the chosenWord in an array. Can be looped through.
 let numBlanks = lettersInWord.length; // This dynamically gets the number of blanks in the split version of chosen word.
 let docUnderScore = document.getElementById("underscore"); // gets the html element underscore
-let docrightguess = document.getElementById("rightguess"); // gets the right guess html element
 let docwrongguess = document.getElementById("wrongguess"); // gets the wrong guess html element
+let docLivesLeft = document.getElementById("number"); // gets the lives left html element
+const maxAttempts = 5;
+var guessCount = 0;
+var guessesRemaining = maxAttempts - guessCount;
 console.log(wrongWords);
 console.log(lettersInWord);
 
@@ -29,7 +32,18 @@ hangWord();
 console.log(hangWord);
 console.log(underScore);
 
-docUnderScore.innerHTML = underScore;
+docUnderScore.innerHTML = underScore.join(' ');
+
+
+
+// clears the words and guesses to restart the game
+function clearWordAndGuesses() {
+	guessCountElement.innerHTML = maxAttempts;
+	guessCount = 0;
+	guessesRemaining = maxAttempts - guessCount;
+	underScore = [];
+docwrongguess.innerHTML = "";
+}
 
 
 
@@ -41,28 +55,28 @@ document.addEventListener('keypress', (event) => {   // the event listener is li
 
     underScore[lettersInWord.indexOf(keyword)] = keyword; 
     docUnderScore.innerHTML = underScore.join(' ');
-    docrightguess.innerHTML = rightWords.join(' ');
     docwrongguess.innerHTML = wrongWords.join(' ');
  
 
-
+    guessesRemaining = maxAttempts - guessCount;
   if(lettersInWord.indexOf(keyword) > -1){
     console.log('you\'ve guessed correctly')
     rightWords.push(keyword);
 }
-else if (wrongWords.length >= 5) {
-    alert("You lost");
-    docUnderScore.innerHTML = chosenWord;
-
-}
 else {
     wrongWords.push(keyword);
+    guessCount++;
+    docLivesLeft.innerHTML = guessesRemaining;
     console.log('wrong')
 }
 
   if (underScore.join('') === chosenWord){
     alert('you win');
-    docrightguess.innerHTML = chosenWord;
+
+}
+else if (guessesRemaining === 0) {
+  alert("You lost");
+  docUnderScore.innerHTML = chosenWord;
 
 }
 })
