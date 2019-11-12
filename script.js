@@ -25,10 +25,24 @@ function clearGame(){
   chosenWord = words[randWord]; // Picking a random word from the words array.
   underScore = [];
   wrongWords = [];
+  const maxAttempts = 5;
+  guessCount = 0;
+  guessesRemaining = maxAttempts - guessCount;
+  docLivesLeft.innerHTML = maxAttempts;
   lettersInWord = chosenWord.split(''); // splits the chosenWord in an array. Can be looped through.
   numBlanks = lettersInWord.length;
 }
 
+function lostGame(){
+  const maxAttempts = 5;
+  guessCount = 0;
+  guessesRemaining = maxAttempts - guessCount;
+  docUnderScore.innerHTML = "";
+  docLivesLeft.innerHTML = maxAttempts;
+  docwrongguess.innerHTML = "";
+  clearGame();
+  getWord();
+}
 
 
 function getWord(){
@@ -86,6 +100,7 @@ else {
 else if (guessesRemaining === 0) {
      
   alert("You lost");
-  docUnderScore.innerHTML = chosenWord;
+  lostGame();
+  resetGame();
 }
 })
