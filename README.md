@@ -8,6 +8,7 @@ https://torreycodes.github.io/Hangman/
 - Start typing to start the game
 - Each User has 5 lives, once they are up, the game is restarted.
 - If the user guesses correctly, it is recorded as a win, if not, a new word is loaded.
+- Each word is picked randomly, (hint: It's possible to get the same word twice!)
 
 ## Key Deliverables
 1. Track user input
