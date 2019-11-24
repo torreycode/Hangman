@@ -2,7 +2,7 @@
 
 ## Live Website
 
-https://torreycodes.github.io/Hangman/
+https://torreycode.github.io/Hangman/
 
 ## How To Play
 - Start typing to start the game
